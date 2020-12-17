@@ -1,3 +1,5 @@
+import './Calendar.scss';
+
 function Calendar() {
   return (
     <></>
