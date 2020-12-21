@@ -1,0 +1,28 @@
+%bold {
+    font-weight: bold;
+}
+
+.body-container {
+    display: flex;
+    height: calc(100% - 56px);
+    width: 100%;
+
+    .weekday-container {
+        display: flex;
+        direction: column;
+    }
+}
+
+.inactive-text {
+    @extend %bold;
+    color: gray;
+}
+
+.active-text {
+    @extend %bold;
+}
+
+.active-weekend-text {
+    @extend %bold;
+    color: rgb(0, 96, 206);
+}
