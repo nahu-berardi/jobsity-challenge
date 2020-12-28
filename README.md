@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# Jobsity JS Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Run the project
 
-## Available Scripts
+In order to run the project, head to the project's folder and run the following script:
 
-In the project directory, you can run:
+#### `npm start` or `npm run start`
 
-### `npm start`
-
-Runs the app in the development mode.\
+This command runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Required configurations
 
-### `npm test`
+### Google Places API
+To take advantage of the Google Places API, you must provide an active API key.\
+This can be done following these steps:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Open the project's folder in the following path `/public`\
+Open the `index.html` file with an editor of your preference.\
+Edit the following line `https://maps.googleapis.com/maps/api/js?key={API_KEY}&libraries=places` adding your key in replacement of `{API_KEY}`.
 
-### `npm run build`
+### OpenWeatherMap API
+To take advantage of the OpenWeatherMap API, you must provide an active API key.\
+This can be done following these steps:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Open the project's folder in the following path `/src/api`\
+Open the `calls.js` file with an editor of your preference.\
+Edit line 53 `const key = "{API_KEY}";` adding your key in replacement of `{API_KEY}`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Missing requirements from the scope
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Weather forecast
+There was some great advance towards getting this requirement done:
 
-### `npm run eject`
+You can query the Google Places API, first to retrieve any given place ID, and then for a detailed geometry of that one place.\
+This means the application is actually receiving a latitude and longitude of any place the user selects.\
+With latitude and longitude, calling the weather API is trivial, but this didn't get done as a consequence of the API key not getting activated.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Unit test adding a reminder
+I wasn't completely sure of the scope of what had to be tested.\
+Anyway, and though I have some experience with unit testing, doing so in the frontend isn't my strenght, so I left this requirement aside.\
+I'm currently rushing through videos so that I can get more familiar and reinforce whatever level of experience I currently have.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Bonus requirements!
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+All of the bonus requirements are satisfied.\
+Additionally, there's the extra of being able to search for any place around the world, as this project is using the Google Places API and the Material-UI autocomplete component to query as you write.
