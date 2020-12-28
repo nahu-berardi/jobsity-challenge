@@ -1,0 +1,37 @@
+.no-reminders-modal {
+    display: flex !important;
+    flex-direction: column;
+    text-align: center;
+    row-gap: 20px;
+}
+
+.reminder-content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.reminder-row {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.reminder-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.reminder-close-button {
+    position: absolute !important;
+    top: 10px;
+    right: 10px;
+    z-index: 3000;
+}
+
+.center-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
