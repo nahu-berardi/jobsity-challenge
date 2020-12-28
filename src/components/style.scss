@@ -1,0 +1,53 @@
+.center-children {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+
+.reminder-modal {
+    display: flex !important;
+    flex-direction: column;
+    position: absolute;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    padding: 20px;
+    row-gap: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.spaced-full-width {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.avatar-size {
+    height: 30px !important;
+    width: 30px !important;
+}
+
+.background-pink {
+    background-color: pink !important;
+}
+
+.background-blue {
+    background-color: blue !important;
+}
+
+.background-red {
+    background-color: red !important;
+}
+
+.background-green {
+    background-color: green !important;
+}
+
+.background-violet {
+    background-color: violet !important;
+}

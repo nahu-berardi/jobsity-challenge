@@ -1,0 +1,14 @@
+.header-container {
+    border: 1px solid gray;
+
+    .header-tab-container {
+        display: flex;
+        justify-content: center;
+
+        .header-tab-item {
+            display: flex;
+            width: calc(100% / 7);
+            justify-content: center;
+        }
+    }
+}
