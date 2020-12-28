@@ -7,7 +7,7 @@
 
         .header-tab-item {
             display: flex;
-            width: 14.27%;
+            width: calc(100% / 7);
             justify-content: center;
         }
     }

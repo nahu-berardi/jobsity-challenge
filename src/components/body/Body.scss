@@ -1,3 +1,5 @@
+@import '../style.scss';
+
 %bold {
     font-weight: bold;
 }
@@ -15,14 +17,21 @@
 
 .inactive-text {
     @extend %bold;
+    cursor: pointer;
     color: gray;
 }
 
 .active-text {
     @extend %bold;
+    cursor: pointer;
 }
 
 .active-weekend-text {
     @extend %bold;
+    cursor: pointer;
     color: rgb(0, 96, 206);
+}
+
+.inactive-background {
+    background-color: rgb(236, 236, 236);
 }

@@ -1,5 +1,13 @@
-.center-children {
-    display: flex !important;
-    justify-content: center;
+@import '../style.scss';
+
+.calendar-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.change-month-button {
+    display: flex;
     align-items: center;
+    cursor: pointer;
+    height: 100vh;
 }

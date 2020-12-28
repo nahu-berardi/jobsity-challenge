@@ -21,7 +21,7 @@ export const getMonthWithAdditionals = (date) => {
     const month = getMonthAsArray(date);
 
     const missingDaysLeft = moment(month[0]).day();
-    const missingDaysRight = 35 - (month.length + missingDaysLeft);
+    const missingDaysRight = 42 - (month.length + missingDaysLeft);
 
     let currentDate = moment(month[0]).subtract(1, 'day');
     const leftInitialDay = moment(moment(month[0]).subtract(missingDaysLeft, 'days').toISOString(true));
@@ -43,4 +43,26 @@ export const getMonthWithAdditionals = (date) => {
     }
 
     return usableMonth;
+}
+
+export const getWeatherPrediction = (latitude, longitude) => {
+    const lat = Math.round(latitude);
+    const lng = Math.round(longitude);
+    const exclude = "current,minutely,hourly,alerts";
+    const unit = "metric";
+    const key = "{API_KEY}";
+
+    const endpoint = `https://pro.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&exclude=${exclude}&units=${unit}&appid=${key}`;
+
+    fetch(endpoint)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            // TODO parse data when key is available.
+            console.log(data);
+        })
+        .catch(function () {
+            // TODO manage error(s).
+        })
 }
