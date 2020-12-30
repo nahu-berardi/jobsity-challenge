@@ -52,15 +52,21 @@ export const getWeatherPrediction = (latitude, longitude) => {
     const unit = "metric";
     const key = "{API_KEY}";
 
-    const endpoint = `https://pro.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&exclude=${exclude}&units=${unit}&appid=${key}`;
+    const endpoint = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&exclude=${exclude}&units=${unit}&appid=${key}`;
 
-    fetch(endpoint)
+    return fetch(endpoint)
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
-            // TODO parse data when key is available.
-            console.log(data);
+            let days = [];
+
+            data.daily.forEach(day => days[moment.unix(day.dt).format('yyyy-MM-DD').substr(0, 10)] = ({
+                weather: day.weather[0].main,
+                description: day.weather[0].description,
+            }));
+
+            return days;
         })
         .catch(function () {
             // TODO manage error(s).

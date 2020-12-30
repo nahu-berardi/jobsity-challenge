@@ -17,6 +17,7 @@ function ReminderEdit(props) {
     const defaultDate = props.reminder && props.reminder.date ? props.reminder.date : moment(selectedDate).format('YYYY-MM-DD').substr(0, 10);
     const defaultTime = props.reminder && props.reminder.time ? props.reminder.time : "07:30";
     const defaultLocation = props.reminder && props.reminder.city ? props.reminder.city : undefined;
+    const defaultCoordinates = props.reminder && props.reminder.coordinates ? props.reminder.coordinates : undefined;
     const defaultWeather = props.reminder && props.reminder.weather ? props.reminder.weather : undefined;
     const defaultColor = props.reminder && props.reminder.color ? props.reminder.color : undefined;
 
@@ -25,6 +26,7 @@ function ReminderEdit(props) {
     const [reminderTime, setReminderTime] = React.useState(defaultTime);
     const [reminderLocation, setReminderLocation] = React.useState(defaultLocation);
     const [reminderColor, setReminderColor] = React.useState(defaultColor);
+    const [reminderCoordinates, setReminderCoordinates] = React.useState(defaultCoordinates);
     const [reminderWeather, setReminderWeather] = React.useState(defaultWeather);
     const [reminderDateError, showReminderDateError] = React.useState(false);
     const [unfilteredReminderDate, setUnfilteredReminderDate] = React.useState(moment(selectedDate).format('YYYY-MM-DD').substr(0, 10));
@@ -57,8 +59,15 @@ function ReminderEdit(props) {
 
     const handleCoordinates = (coordinates) => {
         if (coordinates && moment().add(7, 'days').isAfter(moment(reminderDate))) {
-            const weather = getWeatherPrediction(coordinates.lat, coordinates.lng);
-            setReminderWeather(weather);
+            setReminderCoordinates(coordinates);
+
+            const weather = getWeatherPrediction(coordinates.lat, coordinates.lng).then(days => { return days; });
+            if (weather) {
+                weather.then(days => setReminderWeather(days && days[reminderDate] ?
+                    `${days[reminderDate].weather} - ${days[reminderDate].description}` :
+                    'Not available.'
+                ));
+            }
         }
     }
 
@@ -83,6 +92,7 @@ function ReminderEdit(props) {
                 index: index,
                 message: reminderText === "" ? 'Untitled reminder' : reminderText,
                 city: reminderLocation,
+                coordinates: reminderCoordinates,
                 weather: reminderWeather ? reminderWeather : 'Not available.',
                 color: reminderColor,
             }
@@ -101,6 +111,14 @@ function ReminderEdit(props) {
     const cancelNewReminder = () => {
         close();
     }
+
+    React.useEffect(() => {
+        handleCoordinates(reminderCoordinates);
+    }, [reminderDate]);
+    
+    React.useEffect(() => {
+        handleCoordinates(reminderCoordinates);
+    }, [reminderCoordinates]);
 
     return (
         <div className="reminder-modal center-children">

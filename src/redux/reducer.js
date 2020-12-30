@@ -21,6 +21,7 @@ export function reminders(state = INITIAL_STATE_RECORD, action) {
                 index: action.index,
                 message: action.message,
                 city: action.city,
+                coordinates: action.coordinates,
                 weather: action.weather,
                 color: action.color,
             };

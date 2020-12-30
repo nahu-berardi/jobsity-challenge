@@ -12,11 +12,12 @@ const INITIAL_STATE = {
     index: NaN,
     message: '',
     city: '',
+    coordinates: '',
     weather: '',
     color: '',
 };
 
-export function newReminder(date, time, index, message, city, weather, color) {
+export function newReminder(date, time, index, message, city, coordinates, weather, color) {
     return {
         type: constants.NEW_REMINDER,
         date: date,
@@ -24,6 +25,7 @@ export function newReminder(date, time, index, message, city, weather, color) {
         index: index,
         message: message,
         city: city,
+        coordinates: coordinates,
         weather: weather,
         color: color,
         initialState: INITIAL_STATE,

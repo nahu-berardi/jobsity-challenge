@@ -2,7 +2,7 @@ import { deleteReminder, deleteAllReminders, newReminder } from './actions';
 
 export const createOrUpdateReminder = (props) => async (dispatch) => {
     const { date, index } = props;
-    dispatch(newReminder(date, props.time, index, props.message, props.city, props.weather, props.color));
+    dispatch(newReminder(date, props.time, index, props.message, props.city, props.coordinates, props.weather, props.color));
 };
 
 export const deleteSingleReminder = (props) => async (dispatch) => {
